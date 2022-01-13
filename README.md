@@ -18,6 +18,8 @@ Amazon のほしい物リスト内の値下げを Slack に通知する Bot
 ### 1. スプレッドシートとスクリプトを作成
 
 ```txt
+cd gas-pricedown-notify
+  
 clasp create
 ? Create which script?
   standalone
@@ -31,7 +33,7 @@ clasp create
 
 ### 2. .clasp.json を編集
 
-```json
+```jsonc
 {
   ...
   "rootDir": "./src", // 変更
