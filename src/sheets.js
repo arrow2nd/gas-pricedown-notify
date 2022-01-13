@@ -5,11 +5,11 @@ const lastRow = ss.getLastRow() - 1
  * スプレッドシートからリストを取得
  * @return {Array} 最低価格リスト
  */
-function fetchMinPriceList() {  
+function fetchMinPriceList() {
   if (lastRow < 1) {
     return []
-  }    
-  
+  }
+
   return ss.getRange(2, 1, lastRow, 2).getValues()
 }
 
@@ -23,5 +23,5 @@ function writeMinPriceList(list) {
     ss.getRange(2, 1, lastRow, 2).clearContent()
   }
   // 新しい値を書き込む
-  ss.getRange(2, 1, list.length, 2).setValues([...list])
+  ss.getRange(2, 1, list.length, 2).setValues(list)
 }
