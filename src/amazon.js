@@ -22,17 +22,11 @@ function fetchWishList() {
 
   // 商品リストを作成
   const results = items.map((itm, idx) => {
-    const hrefMatch = itm.match(/href="(.*?)"/)
-    const href = hrefMatch ? hrefMatch[1] : ''
+    const href = itm.match(/href="(.*?)"/)?.[1] ?? ''
 
-    const idMatch = href.match(/dp\/(.+)\//)
-    const id = idMatch ? idMatch[1] : ''
-
-    const titleMatch = itm.match(/title="(.*?)"/)
-    const title = titleMatch ? titleMatch[1] : ''
-
-    const imgMatch = itm.match(/src="(.*?)"/)
-    const img = imgMatch ? imgMatch[1] : ''
+    const id = href.match(/dp\/(.+)\//)?.[1] ?? ''
+    const title = itm.match(/title="(.*?)"/)?.[1] ?? ''
+    const img = itm.match(/src="(.*?)"/)?.[1] ?? ''
 
     return {
       id,
