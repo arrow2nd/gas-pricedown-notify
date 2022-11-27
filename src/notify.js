@@ -6,18 +6,18 @@
 function Notify() {
   // Block Kit
   const payload = {
-    text: '商品の価格が下がりました！',
+    text: "商品の価格が下がりました！",
     blocks: [
       {
-        type: 'header',
+        type: "header",
         text: {
-          type: 'plain_text',
-          text: '🛒 商品の価格が下がりました！',
-          emoji: true
-        }
-      }
-    ]
-  }
+          type: "plain_text",
+          text: "🛒 商品の価格が下がりました！",
+          emoji: true,
+        },
+      },
+    ],
+  };
 
   /**
    * 商品を通知内容に追加
@@ -26,22 +26,23 @@ function Notify() {
    */
   this.addItem = (item, prevPrice) => {
     payload.blocks.push({
-      type: 'divider'
-    })
+      type: "divider",
+    });
 
     payload.blocks.push({
-      type: 'section',
+      type: "section",
       text: {
-        type: 'mrkdwn',
-        text: `*<${item.url}|${item.title}>*\n~¥${prevPrice}~ → *¥${item.price}*`
+        type: "mrkdwn",
+        text:
+          `*<${item.url}|${item.title}>*\n~¥${prevPrice}~ → *¥${item.price}*`,
       },
       accessory: {
-        type: 'image',
+        type: "image",
         image_url: item.img,
-        alt_text: item.title
-      }
-    })
-  }
+        alt_text: item.title,
+      },
+    });
+  };
 
   /**
    * 通知を送信
@@ -49,16 +50,16 @@ function Notify() {
   this.send = () => {
     // 送信する内容が無い
     if (payload.blocks.length <= 1) {
-      return
+      return;
     }
 
-    const webhook = config.SLACK_WEBHOOK_URL
+    const webhook = config.SLACK_WEBHOOK_URL;
     const options = {
-      method: 'post',
-      contentType: 'application/json',
-      payload: JSON.stringify(payload)
-    }
+      method: "post",
+      contentType: "application/json",
+      payload: JSON.stringify(payload),
+    };
 
-    UrlFetchApp.fetch(webhook, options)
-  }
+    UrlFetchApp.fetch(webhook, options);
+  };
 }

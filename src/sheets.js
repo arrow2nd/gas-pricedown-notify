@@ -1,5 +1,5 @@
-const ss = SpreadsheetApp.getActiveSheet()
-const lastRow = ss.getLastRow() - 1
+const ss = SpreadsheetApp.getActiveSheet();
+const lastRow = ss.getLastRow() - 1;
 
 /**
  * スプレッドシートからリストを取得
@@ -7,10 +7,10 @@ const lastRow = ss.getLastRow() - 1
  */
 function fetchMinPriceList() {
   if (lastRow < 1) {
-    return []
+    return [];
   }
 
-  return ss.getRange(2, 1, lastRow, 2).getValues()
+  return ss.getRange(2, 1, lastRow, 2).getValues();
 }
 
 /**
@@ -20,8 +20,8 @@ function fetchMinPriceList() {
 function writeMinPriceList(list) {
   // 元の値を削除
   if (lastRow > 1) {
-    ss.getRange(2, 1, lastRow, 2).clearContent()
+    ss.getRange(2, 1, lastRow, 2).clearContent();
   }
   // 新しい値を書き込む
-  ss.getRange(2, 1, list.length, 2).setValues(list)
+  ss.getRange(2, 1, list.length, 2).setValues(list);
 }

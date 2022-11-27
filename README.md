@@ -7,7 +7,8 @@ Amazon のほしい物リスト内の値下げを Slack に通知する Bot
 ## 用意するもの
 
 - [clasp](https://github.com/google/clasp) のインストール・ログイン
-- Slack の [WebHookURL](https://slack.com/intl/ja-jp/help/articles/115005265063-Slack-%E3%81%A7%E3%81%AE-Incoming-Webhook-%E3%81%AE%E5%88%A9%E7%94%A8)
+- Slack の
+  [WebHookURL](https://slack.com/intl/ja-jp/help/articles/115005265063-Slack-%E3%81%A7%E3%81%AE-Incoming-Webhook-%E3%81%AE%E5%88%A9%E7%94%A8)
 - 公開済みの Amazon のほしい物リスト
 
 ## 使い方メモ
